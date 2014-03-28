@@ -25,20 +25,73 @@
     }
     return self;
 }
--(void)showErrMesage:(NSString*)error
+-(void)showErrMesage:(int)error
 {
-    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:error delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    NSString* str;
+    switch(error)
+    {
+           
+                case HAVE_LOGIN:
+                
+                    str = @"have logined";                           ;
+                    break;
+                case IDLE_TIME_OUT_ERROR:
+                     str = @"idle too long,have been offline";
+                    break;
+                case NOT_LOGIN:
+                      str = @"not login";
+                    break;
+                case HAVE_JOIN_ROOM:
+                    str = @"have joined room";
+                    break;
+                case NO_JOIN_ROOM:
+                      str = @"not join room";
+                    break;
+                case  NO_ROOM:
+                    str =@"no such room";
+                    break;
+                case ROOM_HAVE_EXIST:
+                    str = @"room have exist";
+                    break;
+                case ROOM_HAVE_PLAYER:
+                    str = @"room have that player";
+                    break;
+                case NOT_CORRECT_LOGIN_STATUS:
+                    str = @"not correct login status";
+                    break;
+                case TIME_OUT:
+                    str = @"connect server error";
+                    break;
+                case NOT_CONNECT:
+                    str = @"not conenct server";
+                    break;
+                case HAVE_CONNECT:
+                    str=@"we have connect server";
+                    break;
+                case CONNECT_FAILED:
+                    str = @"connect server failed";
+                    break;
+                default:
+                    break;
+            
+    }
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
     [alert show];
   
 }
--(void)handleError:(int)error
+-(IBAction)freshRoom:(id)sender
 {
-    //
-    if(error == HAVE_LOGIN)
+    int res=0;
+    [_array removeAllObjects];
+    if( (res =[_voice getRoomList:_array]) !=0)
     {
-        [self showErrMesage:@"have login"];
+        [self showErrMesage:res];
+        
+    }else
+    {
+        [self.tableView reloadData];
     }
-    //
+
 }
 -(IBAction)createRoom:(id)sender
 {
@@ -48,13 +101,13 @@
     int res = [_voice creaetRoom:roomId];
     if(res!=0)
     {
-        [self handleError:res];
+        [self showErrMesage:res];
     }
     else{
         [_array removeAllObjects];
         if( (res =[_voice getRoomList:_array]) !=0)
         {
-           [self handleError:res];
+           [self showErrMesage:res];
            
         }else
         {
@@ -80,10 +133,10 @@
     if(_connected == false)
     {
         int res=0;
-        if((res = [_voice connectServer:@"192.168.1.248" port:9009]) !=0)
+        if((res = [_voice connectServer:@"183.57.16.34" port:9009]) !=0)
     {
         NSLog(@"conenct server failed");
-        [self handleError:res];
+        [self showErrMesage:res];
          goto failed;    }
     int playerId;
     srand(time(NULL));
@@ -91,14 +144,14 @@
     if((res = [_voice loginServer:playerId]) !=0)
     {
         NSLog(@"loginServer failed");
-        [self handleError:res];
+        [self showErrMesage:res];
           goto failed;
     }
     _array = [NSMutableArray array];
     if((res = [_voice getRoomList:_array]) !=0)
     {
         NSLog(@"getRoomList failed");
-        [self handleError:res];
+        [self showErrMesage:res];
         
         goto failed;
     }
@@ -177,20 +230,27 @@
  // Return NO if you do not want the specified item to be editable.
  return YES;
  }
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
+   
     NSArray* path = [self.tableView indexPathsForSelectedRows];
     NSIndexPath* index = [path objectAtIndex:0];
     NSString* str = [_array objectAtIndex:index.row];
-    hygRoomViewController* room =(hygRoomViewController*) segue.destinationViewController;
-    room.RoomId=[str intValue];
-    int res =  [[VoiceController sharedInstance]  enterRoom:room.RoomId];
+    int res =  [[VoiceController sharedInstance]  enterRoom:str.intValue];
     if(res !=0)
     {
-        [self showErrMesage:@"enterRoom error"];
-        return;
+        [self showErrMesage:res];
+        return NO;
     }
+    return YES;
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    hygRoomViewController* room =(hygRoomViewController*) segue.destinationViewController;
+    NSArray* path = [self.tableView indexPathsForSelectedRows];
+    NSIndexPath* index = [path objectAtIndex:0];
+    NSString* str = [_array objectAtIndex:index.row];
+    room.RoomId=[str intValue];
 }
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

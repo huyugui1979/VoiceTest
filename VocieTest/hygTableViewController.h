@@ -15,6 +15,8 @@
     bool _connected;
 }
 -(IBAction)connectServer:(id)object;
+-(IBAction)createRoom:(id)sender;
+-(IBAction)freshRoom:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *myButton;
 
 @end

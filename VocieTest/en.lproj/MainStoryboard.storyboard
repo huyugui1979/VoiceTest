@@ -18,7 +18,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I4d-bg-Beq">
-                                    <rect key="frame" x="14" y="0.0" width="111" height="44"/>
+                                    <rect key="frame" x="9" y="-1" width="111" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                     <state key="normal" title="Connect Server"/>
@@ -27,21 +27,24 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q3g-6y-jej">
-                                    <rect key="frame" x="128" y="7" width="86" height="30"/>
+                                    <rect key="frame" x="122" y="7" width="92" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="add room">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="createRoom:" destination="6u0-dI-DRg" eventType="touchUpInside" id="D1F-TD-bv3"/>
+                                        <action selector="createRoom:" destination="6u0-dI-DRg" eventType="touchUpInside" id="ZwE-qZ-qwm"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I5E-16-KNM">
-                                    <rect key="frame" x="213" y="7" width="87" height="30"/>
+                                    <rect key="frame" x="210" y="7" width="104" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="refresh room">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="freshRoom:" destination="6u0-dI-DRg" eventType="touchUpInside" id="7sf-fb-si1"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
