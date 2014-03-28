@@ -133,6 +133,7 @@
     if(_connected == false)
     {
         int res=0;
+        
         if((res = [_voice connectServer:@"183.57.16.34" port:9009]) !=0)
     {
         NSLog(@"conenct server failed");
