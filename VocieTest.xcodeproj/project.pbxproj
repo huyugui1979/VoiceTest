@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		044AFEF818C827B700CEAA9F /* voiceClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044AFEF618C827B700CEAA9F /* voiceClient.cpp */; };
+		049E247E18F4EE56002BFB3E /* hygContigVewControllerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 049E247D18F4EE56002BFB3E /* hygContigVewControllerViewController.mm */; };
+		049E248118F4EEFD002BFB3E /* voiceConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = 049E248018F4EEFD002BFB3E /* voiceConfig.mm */; };
 		049F3FFC18E5061800D16ADB /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F3FF918E5061800D16ADB /* libogg.a */; };
 		049F3FFD18E5061800D16ADB /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F3FFA18E5061800D16ADB /* libspeex.a */; };
 		049F3FFE18E5061800D16ADB /* libspeexdsp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F3FFB18E5061800D16ADB /* libspeexdsp.a */; };
@@ -33,6 +35,10 @@
 /* Begin PBXFileReference section */
 		044AFEF618C827B700CEAA9F /* voiceClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = voiceClient.cpp; sourceTree = "<group>"; };
 		044AFEF718C827B700CEAA9F /* voiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voiceClient.h; sourceTree = "<group>"; };
+		049E247C18F4EE56002BFB3E /* hygContigVewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hygContigVewControllerViewController.h; sourceTree = "<group>"; };
+		049E247D18F4EE56002BFB3E /* hygContigVewControllerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hygContigVewControllerViewController.mm; sourceTree = "<group>"; };
+		049E247F18F4EEFD002BFB3E /* voiceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voiceConfig.h; sourceTree = "<group>"; };
+		049E248018F4EEFD002BFB3E /* voiceConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = voiceConfig.mm; sourceTree = "<group>"; };
 		049F3FF918E5061800D16ADB /* libogg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libogg.a; path = lib/libogg.a; sourceTree = "<group>"; };
 		049F3FFA18E5061800D16ADB /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = lib/libspeex.a; sourceTree = "<group>"; };
 		049F3FFB18E5061800D16ADB /* libspeexdsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeexdsp.a; path = lib/libspeexdsp.a; sourceTree = "<group>"; };
@@ -136,6 +142,10 @@
 				044AFEF618C827B700CEAA9F /* voiceClient.cpp */,
 				044AFEF718C827B700CEAA9F /* voiceClient.h */,
 				04FD881918CEBE9000CDFBF0 /* ServerError.h */,
+				049E247C18F4EE56002BFB3E /* hygContigVewControllerViewController.h */,
+				049E247D18F4EE56002BFB3E /* hygContigVewControllerViewController.mm */,
+				049E247F18F4EEFD002BFB3E /* voiceConfig.h */,
+				049E248018F4EEFD002BFB3E /* voiceConfig.mm */,
 			);
 			path = VocieTest;
 			sourceTree = "<group>";
@@ -221,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049E248118F4EEFD002BFB3E /* voiceConfig.mm in Sources */,
 				A56FDBF4187ED17300618D73 /* SpeexCoder.cpp in Sources */,
 				A56FDBCE187EB2FF00618D73 /* main.m in Sources */,
 				044AFEF818C827B700CEAA9F /* voiceClient.cpp in Sources */,
@@ -228,6 +239,7 @@
 				A56FDBD2187EB2FF00618D73 /* hygAppDelegate.m in Sources */,
 				A56FDBE6187EB41A00618D73 /* VoiceController.mm in Sources */,
 				A59A92D2188CB29900B6CBAB /* hygTableViewController.mm in Sources */,
+				049E247E18F4EE56002BFB3E /* hygContigVewControllerViewController.mm in Sources */,
 				A512CF6C188E329A00AB646E /* hygRoomViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
