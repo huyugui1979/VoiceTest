@@ -8,6 +8,7 @@
 
 #import "hygTableViewController.h"
 #import "hygRoomViewController.h"
+#import "voiceConfig.h"
 #import "ServerError.h"
 @interface hygTableViewController ()
 
@@ -134,11 +135,12 @@
     {
         int res=0;
         
-        if((res = [_voice connectServer:@"183.57.16.34" port:9009]) !=0)
+        if((res = [_voice connectServer:[voiceConfig sharedInstance].address port:[voiceConfig sharedInstance].port ]) !=0)
     {
         NSLog(@"conenct server failed");
         [self showErrMesage:res];
-         goto failed;    }
+         goto failed;
+    }
     int playerId;
     srand(time(NULL));
     playerId = rand()%1000;
@@ -234,7 +236,9 @@
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
    
-    NSArray* path = [self.tableView indexPathsForSelectedRows];
+    if([identifier isEqualToString:@"room"])
+    {
+        NSArray* path = [self.tableView indexPathsForSelectedRows];
     NSIndexPath* index = [path objectAtIndex:0];
     NSString* str = [_array objectAtIndex:index.row];
     int res =  [[VoiceController sharedInstance]  enterRoom:str.intValue];
@@ -243,15 +247,21 @@
         [self showErrMesage:res];
         return NO;
     }
+        return YES;
+    }
+    else 
     return YES;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"room" ])
+    {
     hygRoomViewController* room =(hygRoomViewController*) segue.destinationViewController;
     NSArray* path = [self.tableView indexPathsForSelectedRows];
     NSIndexPath* index = [path objectAtIndex:0];
     NSString* str = [_array objectAtIndex:index.row];
     room.RoomId=[str intValue];
+    }
 }
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

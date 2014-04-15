@@ -300,7 +300,7 @@ void * VoiceSession::RecvServerProc(void *p)
                 {
                     v->Signal() ;
                 }
-                if(m==1 && s==12)
+                if(m==1 && s==12)//left room
                 {
                     v->Signal() ;
                 }
@@ -326,7 +326,7 @@ void * VoiceSession::RecvServerProc(void *p)
                         
                         continue;
                     }
-                  
+                    
                     printf("recv seq is %d,crc is%d,size is %d\n",*seq,Crc,len);
                     for(int i=0;i<*count;i++)
                     {
@@ -412,8 +412,31 @@ void * VoiceSession::RecvServerProc(void *p)
                     v->_serverEvent(24,c );
                     delete c;
                     //
-                     printf("playerId %d get out",c->player_id);
-                    
+    
+                }
+                if(m==1 && s==30)
+                {
+                    v->Signal();
+                }
+                if(m==1 && s==32)
+                {
+                    v->Signal();
+                }
+                if(m==2 && s == 30)//begin talk echo
+                {
+                    //
+                    int* playerId = (int*)(udpBuffer+2);
+                    voiceClient* c = v->_clients.at(*playerId);
+                    v->_serverEvent(30,c );
+                    //
+                }
+                if(m==2 && s==32)//stop talk echo
+                {
+                    //
+                    int* playerId = (int*)(udpBuffer+2);
+                    voiceClient* c = v->_clients.at(*playerId);
+                    v->_serverEvent(32,c );
+                    //
                 }
                                //
             }
@@ -423,9 +446,9 @@ void * VoiceSession::RecvServerProc(void *p)
 }
 void VoiceSession::Signal()
 {
-    pthread_mutex_lock(&_mutex);
+    //pthread_mutex_lock(&_mutex);
     pthread_cond_signal(&_cond);
-    pthread_mutex_unlock(&_mutex);
+   // pthread_mutex_unlock(&_mutex);
     
 }
 int VoiceSession::Wait(int seconds)
@@ -518,6 +541,60 @@ int VoiceSession::SetRecvData(int playerId,bool recv)
     return res;
 
 }
+int VoiceSession::BeginTalk()
+{
+    //
+    if(_clientStatus != 2)
+    {
+        if(_clientStatus ==-1)
+            return NOT_CONNECT;
+        if(_clientStatus ==0)
+            return NOT_LOGIN;
+        if (_clientStatus ==1)
+            return HAVE_LOGIN;
+    }
+    //
+    char sendBuffer[256];
+    bzero(sendBuffer,sizeof(sendBuffer));
+    sendBuffer[0]=1;
+    sendBuffer[1]=29;
+    
+   
+    int res = SendDataToServer(sendBuffer,2);
+    if(res == 0)
+    {
+       
+    }
+    return res;
+
+    //
+}
+int VoiceSession::StopTalk()
+{
+    //
+    if(_clientStatus != 2)
+    {
+        if(_clientStatus ==-1)
+            return NOT_CONNECT;
+        if(_clientStatus ==0)
+            return NOT_LOGIN;
+        if (_clientStatus ==1)
+            return HAVE_LOGIN;
+    }
+    //
+    char sendBuffer[256];
+    bzero(sendBuffer,sizeof(sendBuffer));
+    sendBuffer[0]=1;
+    sendBuffer[1]=31;
+    
+    int res = SendDataToServer(sendBuffer,2);
+    if(res == 0)
+    {
+        
+    }
+    return res;
+    //
+}
 int VoiceSession::LeaveRoom()
 {
     if(_clientStatus != 2)
@@ -533,9 +610,9 @@ int VoiceSession::LeaveRoom()
     bzero(sendBuffer,sizeof(sendBuffer));
     sendBuffer[0]=1;
     sendBuffer[1]=11;
-    
-    bcopy(&_roomId,sendBuffer+2,4);
-    int res = SendDataToServer(sendBuffer,6);
+    bcopy(&_roomId, sendBuffer+2,4);
+    int res = SendDataToServer(sendBuffer,6
+                               );
     if(res == 0)
     {
         _roomId=0;
@@ -790,6 +867,7 @@ int VoiceSession::InitSockStruct(const char* address,short port)
     int res = connect(_sockfd,(const struct sockaddr*)&_serverStruct,addrlen);
     if(res <0)
     {
+        
         return CONNECT_FAILED;
     }
     _clientStatus=0;
@@ -818,7 +896,7 @@ int VoiceSession::Init(const char* address,short port)
     //
 
 
-
+  
     int res=0;
     //
     res = InitSockStruct(address,port);

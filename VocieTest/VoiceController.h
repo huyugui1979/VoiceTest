@@ -30,6 +30,8 @@
 -(int)stopPlay;
 -(int)loginServer:(int)playerId;
 -(int)loginOut;
+-(int)beginTalk;
+-(int)stopTalk;
 -(int)getRoomList:(NSMutableArray*)array;
 -(int)creaetRoom:(int)roomId;
 -(int)getMemberList:(int)RoomId array:(NSMutableArray*)array;

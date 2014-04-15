@@ -75,13 +75,27 @@ static void OnServerEvent(int type,void* param)
            //
             voiceClient* t=(voiceClient*)param;
             
-            
             NSString * p = [NSString stringWithFormat:@"%d",t->player_id];
             NSString* r = [NSString stringWithFormat:@"%d",t->room_id];
             NSDictionary* dic= [NSDictionary dictionaryWithObjectsAndKeys:p,@"playerId",r,@"roomId",nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LeaveRoom" object:nil userInfo:dic];
-            
             //
+        }
+        if(type == 30)
+        {
+            voiceClient* t=(voiceClient*)param;
+            
+            NSString * p = [NSString stringWithFormat:@"%d",t->player_id];
+            NSDictionary* dic= [NSDictionary dictionaryWithObjectsAndKeys:p,@"playerId",nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"BeginTalk" object:nil userInfo:dic];
+        }
+        if(type == 32)
+        {
+            voiceClient* t=(voiceClient*)param;
+        
+            NSString * p = [NSString stringWithFormat:@"%d",t->player_id];
+            NSDictionary* dic= [NSDictionary dictionaryWithObjectsAndKeys:p,@"playerId",nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"StopTalk" object:nil userInfo:dic];
         }
         
     }
@@ -253,6 +267,16 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
         
     }
     return self;
+}
+-(int)beginTalk
+{
+    int res = _voiceSession->BeginTalk() ;
+    return  res;
+}
+-(int)stopTalk
+{
+    int res = _voiceSession->StopTalk() ;
+    return  res;
 }
 -(int )loginOut
 {

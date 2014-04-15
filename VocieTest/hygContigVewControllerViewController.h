@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface hygContigVewControllerViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UITextField *Address;
+@property (weak, nonatomic) IBOutlet UITextField *Port;
 
+- (IBAction)clickOK:(id)sender;
 @end

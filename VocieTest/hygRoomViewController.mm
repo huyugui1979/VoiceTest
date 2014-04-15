@@ -47,6 +47,7 @@
     //
     if(self.RoomId == [roomId intValue])
     {
+        //接收该客户
         NSLog(@"player id is %@",playerId);
         [_array addObject:playerId];
         NSLog(@"_array size is %d",_array.count);
@@ -63,9 +64,11 @@
     if(_begin)
     {
         //
+      
         UIAlertView* view = [[UIAlertView alloc]initWithTitle:@"error" message:@"server disconnect" delegate:nil  cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [view show];
         [_array removeAllObjects];
+        [[VoiceController sharedInstance] stopPlay];
         _begin=false;
     }
     
@@ -82,8 +85,6 @@
   
     if(self.RoomId == [roomId intValue])
     {
-      
-       
         dispatch_async(dispatch_get_main_queue(), ^{
              [_array removeObject:playerId];
             [self.tableView reloadData];
@@ -91,25 +92,56 @@
         //
     }
 }
+-(void)onBeginTalk:(NSNotification*) aNotification
+{
+    NSDictionary* dict = aNotification.userInfo;
+    NSString* playerId = [dict objectForKey:@"playerId"];
+    //
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //
+        int pos = [_array indexOfObject:playerId];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:pos inSection:0]];
+         cell.textLabel.textColor = [UIColor redColor];
+       
+        //
+    });
 
+}
+-(void)onStopTalk:(NSNotification*) aNotification
+{
+    //
+    NSDictionary* dict = aNotification.userInfo;
+    NSString* playerId = [dict objectForKey:@"playerId"];
+    //
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //
+        int pos = [_array indexOfObject:playerId];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:pos inSection:0]];
+        cell.textLabel.textColor = [UIColor blackColor];
+        //
+    });
+    //
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onEnterRoom:) name:@"EnterRoom" object:nil];//:@"EnterRoom" object:nil userInfo:dic];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLeaveRoom:) name:@"LeaveRoom" object:nil];//:@"EnterRoom" object:nil userInfo:dic];
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBeginTalk:) name:@"BeginTalk" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onStopTalk:) name:@"StopTalk" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onServerDisconnect:) name:@"ServerDisconnect" object:nil];//:@"EnterRoom" object:nil userInfo:dic];
     //
-    int res = [[VoiceController sharedInstance] getMemberList:self.RoomId array:_array];
+    int res =  [[VoiceController sharedInstance]  enterRoom:self.RoomId];
+    if(res !=0)
+    {
+        [self showErrMesage:@"enter room error"];
+        return ;
+    }
+
+     res = [[VoiceController sharedInstance] getMemberList:self.RoomId array:_array];
     if( res !=0)
     {
         [self showErrMesage:@"get member list error,error code"];
         return ;
-    }
-     res = [[VoiceController sharedInstance] setAudioRecv:0 redv:true];
-    if(res !=0)
-    {
-        
-        [self showErrMesage:@"set Audio Recv list error,error code"];
-        return;
     }
     if(_begin==false)
     {
@@ -193,7 +225,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [_array objectAtIndex:indexPath.row];
-     cell.accessoryType =UITableViewCellAccessoryCheckmark;
+    cell.accessoryType =UITableViewCellAccessoryCheckmark;
     return cell;
 }
 
@@ -263,6 +295,7 @@
 - (IBAction)stop:(id)sender {
     //
    // self.button.backgroundColor=[UIColor greenColor];
+     [[VoiceController sharedInstance] stopTalk];
     [[VoiceController sharedInstance] stopRecord];
     NSLog(@"stop");
     //
@@ -270,6 +303,7 @@
 
 - (IBAction)begin:(id)sender {
    // self.button.backgroundColor=[UIColor redColor];
+    [[VoiceController sharedInstance] beginTalk];
     [[VoiceController sharedInstance] startRecord];
     NSLog(@"start");
    }

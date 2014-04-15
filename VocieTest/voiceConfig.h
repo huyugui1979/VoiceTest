@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface voiceConfig : NSObject
-
+{
+    
+}
+@property (retain,atomic) NSString* address;
+@property (assign,atomic) short port;
++(voiceConfig*)sharedInstance;
 @end

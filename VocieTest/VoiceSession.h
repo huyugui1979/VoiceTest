@@ -31,7 +31,9 @@ public:
     int LeaveRoom();
     int GetRoomList(vector<int>* vs);//m=1,s=13
     int SendData(char* data,int len);//m=1,s=17
-    int SetRecvData(int playerId,bool recv);
+    int SetRecvData(int playerId,bool recv);//m=1,s=27;
+    int BeginTalk();//m=1,s=29;
+    int StopTalk();//m=1,s=31;
     int GetData(char* data);
    
     int GetRoomMember(int roomId,vector<int>* vs);//m=1,s=15
