@@ -233,25 +233,25 @@
  // Return NO if you do not want the specified item to be editable.
  return YES;
  }
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-   
-    if([identifier isEqualToString:@"room"])
-    {
-        NSArray* path = [self.tableView indexPathsForSelectedRows];
-    NSIndexPath* index = [path objectAtIndex:0];
-    NSString* str = [_array objectAtIndex:index.row];
-    int res =  [[VoiceController sharedInstance]  enterRoom:str.intValue];
-    if(res !=0)
-    {
-        [self showErrMesage:res];
-        return NO;
-    }
-        return YES;
-    }
-    else 
-    return YES;
-}
+//-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+//{
+//   
+//    if([identifier isEqualToString:@"room"])
+//    {
+//        NSArray* path = [self.tableView indexPathsForSelectedRows];
+//    NSIndexPath* index = [path objectAtIndex:0];
+//    NSString* str = [_array objectAtIndex:index.row];
+//    int res =  [[VoiceController sharedInstance]  enterRoom:str.intValue];
+//    if(res !=0)
+//    {
+//        [self showErrMesage:res];
+//        return NO;
+//    }
+//        return YES;
+//    }
+//    else 
+//    return YES;
+//}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"room" ])
@@ -305,7 +305,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-   
+    NSString* str = [_array objectAtIndex:indexPath.row];
+    int res =  [[VoiceController sharedInstance]  enterRoom:str.intValue];
+    if(res !=0)
+    {
+        [self showErrMesage:res];
+        return ;
+    }else
+    [self performSegueWithIdentifier:@"room" sender:NULL];
+
  
 
     

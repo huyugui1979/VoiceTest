@@ -130,14 +130,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onStopTalk:) name:@"StopTalk" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onServerDisconnect:) name:@"ServerDisconnect" object:nil];//:@"EnterRoom" object:nil userInfo:dic];
     //
-    int res =  [[VoiceController sharedInstance]  enterRoom:self.RoomId];
-    if(res !=0)
-    {
-        [self showErrMesage:@"enter room error"];
-        return ;
-    }
-
-     res = [[VoiceController sharedInstance] getMemberList:self.RoomId array:_array];
+    
+     int res = [[VoiceController sharedInstance] getMemberList:self.RoomId array:_array];
     if( res !=0)
     {
         [self showErrMesage:@"get member list error,error code"];

@@ -66,9 +66,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="8KH-1S-vjR" kind="push" identifier="room" id="VeM-Q0-RGZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -81,6 +78,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="myButton" destination="I4d-bg-Beq" id="MZH-eZ-URh"/>
+                        <segue destination="8KH-1S-vjR" kind="push" identifier="room" id="gQW-EP-9Po"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SL7-Ec-OSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZ4-rh-hDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-436" y="-455"/>
+            <point key="canvasLocation" x="-328" y="-631"/>
         </scene>
         <!--Hyg Room View Controller-->
         <scene sceneID="7aF-73-6eR">
@@ -233,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xc-Rp-Meb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-426" y="-143"/>
+            <point key="canvasLocation" x="-362" y="461"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c4J-qd-nDZ">

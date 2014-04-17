@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/hygRoomViewController.mm"
-            timestampString = "419223054.419965"
+            timestampString = "419394484.485847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-handleBack:"
             landmarkType = "5">
             <Locations>
@@ -181,7 +181,7 @@
                   symbolName = "-[hygRoomViewController handleBack:]"
                   moduleName = "VocieTest"
                   urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygRoomViewController.mm"
-                  timestampString = "419223904.795667"
+                  timestampString = "419394212.250531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "183"
@@ -195,7 +195,7 @@
                   symbolName = "-[hygRoomViewController handleBack:]"
                   moduleName = "VocieTest"
                   urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygRoomViewController.mm"
-                  timestampString = "419223904.795871"
+                  timestampString = "419394212.25087"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "183"
@@ -209,7 +209,7 @@
                   symbolName = "-[hygRoomViewController handleBack:]"
                   moduleName = "VocieTest"
                   urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygRoomViewController.mm"
-                  timestampString = "419223904.796018"
+                  timestampString = "419394212.251154"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "183"
@@ -226,13 +226,151 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "419230239.002407"
+            timestampString = "419393510.26496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "626"
-            endingLineNumber = "626"
+            startingLineNumber = "633"
+            endingLineNumber = "633"
             landmarkName = "VoiceSession::EnterRoom(int roomId)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VocieTest/VoiceSession.cpp"
+            timestampString = "419393510.26496"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "659"
+            endingLineNumber = "659"
+            landmarkName = "VoiceSession::GetRoomMember(int roomId,vector&lt;int&gt;* s)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VocieTest/VoiceSession.cpp"
+            timestampString = "419391840.264473"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "VoiceSession::RecvServerProc(void *p)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VocieTest/hygTableViewController.mm"
+            timestampString = "419392169.239566"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-connectServer:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[hygTableViewController connectServer:]"
+                  moduleName = "VocieTest"
+                  urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygTableViewController.mm"
+                  timestampString = "419392382.804298"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[hygTableViewController connectServer:]"
+                  moduleName = "VocieTest"
+                  urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygTableViewController.mm"
+                  timestampString = "419392382.804507"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "1402">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[hygTableViewController connectServer:]"
+                  moduleName = "VocieTest"
+                  urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygTableViewController.mm"
+                  timestampString = "419392382.804806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VocieTest/hygTableViewController.mm"
+            timestampString = "419394718.958426"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[hygTableViewController tableView:didSelectRowAtIndexPath:]"
+                  moduleName = "VocieTest"
+                  urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygTableViewController.mm"
+                  timestampString = "419394865.437825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "226">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[hygTableViewController tableView:didSelectRowAtIndexPath:]"
+                  moduleName = "VocieTest"
+                  urlString = "file:///Users/mac/Desktop/VoiceTest-master/VocieTest/hygTableViewController.mm"
+                  timestampString = "419394865.438029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

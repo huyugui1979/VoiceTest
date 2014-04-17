@@ -617,6 +617,13 @@ int VoiceSession::LeaveRoom()
     {
         _roomId=0;
         _clientStatus=1;
+        //
+        auto it=_clients.begin();
+        for(;it !=_clients.end();it++)
+        {
+            delete it->second;
+        }
+        _clients.clear();
     }
     return res;
     
