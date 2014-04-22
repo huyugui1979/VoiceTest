@@ -24,18 +24,7 @@
     }
     return self;
 }
--(void)showErrMesage:(NSString*)error
-{
-      
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:error delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-      
-        [alert show];
-    });
 
- 
-    
-}
 -(void)onEnterRoom:(NSNotification*) aNotification
 {
     //
@@ -134,7 +123,7 @@
      int res = [[VoiceController sharedInstance] getMemberList:self.RoomId array:_array];
     if( res !=0)
     {
-        [self showErrMesage:@"get member list error,error code"];
+        [self showErrMesage:res];
         return ;
     }
     if(_begin==false)
@@ -183,13 +172,68 @@
     int res =  [[VoiceController sharedInstance]  leaveRoom];
     if(res !=0)
     {
-        [self showErrMesage:@"leaveRoom error"];
+        [self showErrMesage:res];
         return;
     }
 
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
+-(void)showErrMesage:(int)error
+{
+    NSString* str;
+    switch(error)
+    {
+            
+        case HAVE_LOGIN:
+            
+            str = @"have logined";                           ;
+            break;
+        case IDLE_TIME_OUT_ERROR:
+            str = @"idle too long,have been offline";
+            break;
+        case NOT_LOGIN:
+            str = @"not login";
+            break;
+        case HAVE_JOIN_ROOM:
+            str = @"have joined room";
+            break;
+        case NO_JOIN_ROOM:
+            str = @"not join room";
+            break;
+        case  NO_ROOM:
+            str =@"no such room";
+            break;
+        case ROOM_HAVE_EXIST:
+            str = @"room have exist";
+            break;
+        case ROOM_HAVE_PLAYER:
+            str = @"room have that player";
+            break;
+        case NOT_CORRECT_LOGIN_STATUS:
+            str = @"not correct login status";
+            break;
+        case TIME_OUT:
+            str = @"connect server error";
+            break;
+        case NOT_CONNECT:
+            str = @"not conenct server";
+            break;
+        case HAVE_CONNECT:
+            str=@"we have connect server";
+            break;
+        case CONNECT_FAILED:
+            str = @"connect server failed";
+            break;
+        default:
+            break;
+            
+    }
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"error" message:str delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

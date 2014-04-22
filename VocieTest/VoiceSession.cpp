@@ -844,7 +844,7 @@ int VoiceSession::LoginServer(int playerId)
     }
     return res;
 }
-int VoiceSession::InitSockStruct(const char* address,short port)
+int VoiceSession::InitSockStruct(const char* address,short port,int timeout)
 {
     if(_clientStatus != -1)
     {
@@ -871,6 +871,10 @@ int VoiceSession::InitSockStruct(const char* address,short port)
     }
     int  set = 1;
     setsockopt(_sockfd, SOL_SOCKET, SO_NOSIGPIPE, (void  *)&set, sizeof(int));
+    struct timeval timeo = {timeout, 0};
+    socklen_t len = sizeof(timeo);
+    setsockopt(_sockfd, SOL_SOCKET, SO_SNDTIMEO, &timeo, len);
+    
     int res = connect(_sockfd,(const struct sockaddr*)&_serverStruct,addrlen);
     if(res <0)
     {
@@ -898,7 +902,7 @@ void VoiceSession::initCrc()
     }
 }
 
-int VoiceSession::Init(const char* address,short port)
+int VoiceSession::Init(const char* address,short port,int timeout)
 {
     //
 
@@ -906,7 +910,7 @@ int VoiceSession::Init(const char* address,short port)
   
     int res=0;
     //
-    res = InitSockStruct(address,port);
+    res = InitSockStruct(address,port,timeout);
     if(res==0)
     {
         pthread_t tid ;

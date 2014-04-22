@@ -230,16 +230,16 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
     return 0;
     //
 }
--(int)connectServer:(NSString*)serverAdress port:(short)port
+-(int)connectServer:(NSString*)serverAdress port:(short)port timeout:(int)timeout
 {
     int res=0;
     //if((res = _voiceSession->Init("42.121.19.238", 9009))!=0)
         //            if((res = _voiceSession->Init("192.168.128.130", 9009))!=0)
-    if((res = _voiceSession->Init([serverAdress cStringUsingEncoding:NSUTF8StringEncoding], port))!=0)
+    if((res = _voiceSession->Init([serverAdress cStringUsingEncoding:NSUTF8StringEncoding], port,timeout) ) !=0)
         
     {
         NSLog(@"init voice session failed,error code is %d",res);
-        return -1;
+        return res;
     }
     return res;
 }

@@ -14,5 +14,6 @@
 }
 @property (retain,atomic) NSString* address;
 @property (assign,atomic) short port;
+@property (assign,atomic) int  timeout;
 +(voiceConfig*)sharedInstance;
 @end

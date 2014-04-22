@@ -135,7 +135,7 @@
     {
         int res=0;
         
-        if((res = [_voice connectServer:[voiceConfig sharedInstance].address port:[voiceConfig sharedInstance].port ]) !=0)
+        if((res = [_voice connectServer:[voiceConfig sharedInstance].address port:[voiceConfig sharedInstance].port timeout:[voiceConfig sharedInstance].timeout]) !=0)
     {
         NSLog(@"conenct server failed");
         [self showErrMesage:res];
