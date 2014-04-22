@@ -496,7 +496,7 @@ int VoiceSession::SendDataToServer(char* buffer, int len)
     }
     pthread_mutex_unlock(&_socket_mutex);
     
-    if(this->Wait(100)!= -1)
+    if(this->Wait(1)!= -1)
     {
         if(this->_serverError ==0)
             res =0;
