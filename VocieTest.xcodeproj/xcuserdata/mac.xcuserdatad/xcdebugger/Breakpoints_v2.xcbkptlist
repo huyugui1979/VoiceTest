@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-onStopTalk:"
-            landmarkType = "5">
+            endingLineNumber = "118">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,9 +28,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-onBeginTalk:"
-            landmarkType = "5">
+            endingLineNumber = "101">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -79,7 +75,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "467"
             endingLineNumber = "467"
-            landmarkName = "VoiceSession::RecvServerProc(void *p)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +91,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "476"
             endingLineNumber = "476"
-            landmarkName = "VoiceSession::RecvServerProc(void *p)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -110,9 +106,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-onLeaveRoom:"
-            landmarkType = "5">
+            endingLineNumber = "81">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -170,9 +164,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-handleBack:"
-            landmarkType = "5">
+            endingLineNumber = "177">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -231,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "673"
             endingLineNumber = "673"
-            landmarkName = "VoiceSession::EnterRoom(int roomId)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -247,7 +239,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "699"
             endingLineNumber = "699"
-            landmarkName = "VoiceSession::GetRoomMember(int roomId,vector&lt;int&gt;* s)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -263,7 +255,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "388"
             endingLineNumber = "388"
-            landmarkName = "VoiceSession::RecvServerProc(void *p)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -278,9 +270,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-connectServer:"
-            landmarkType = "5">
+            endingLineNumber = "134">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -338,9 +328,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            endingLineNumber = "309">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -376,7 +364,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
@@ -385,7 +373,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
             endingLineNumber = "219"
-            landmarkName = "VoiceSession::ServerTimerProc(void *p)"
+            landmarkName = "VoiceSession::~VoiceSession()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
