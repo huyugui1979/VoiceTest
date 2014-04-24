@@ -13,6 +13,7 @@
     NSMutableArray* _array;
     bool _begin;
 }
+-(void)showErrMesage:(int)error;
 - (IBAction)begin:(id)sender;
 - (IBAction)stop:(id)sender;
 -(IBAction)createRoom:(id)sender;

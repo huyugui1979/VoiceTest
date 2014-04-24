@@ -21,7 +21,7 @@ class VoiceSession
 public:
     VoiceSession();
     ~VoiceSession();
-    int Init(const char* addess,short port);
+    int Init(const char* addess,short port,int timeout);
     void Reset();
     int LoginServer(int playerId);//m=1s=3
     int LoginOutServer();//m=1,s=7
@@ -47,7 +47,7 @@ private:
     void initCrc();
     int  Wait(int seconds);
     int CheckServer();
-    int InitSockStruct(const char* address,short port);
+    int InitSockStruct(const char* address,short port,int timeout);
    
     static void * RecvServerProc(void *p);
     static void * ServerTimerProc(void *p);

@@ -37,6 +37,6 @@
 -(int)getMemberList:(int)RoomId array:(NSMutableArray*)array;
 -(int)enterRoom:(int)roomId;
 -(int)leaveRoom;
--(int)connectServer:(NSString*)serverAdress port:(short)port;
+-(int)connectServer:(NSString*)serverAdress port:(short)port timeout:(int)timeout;
 -(int)resetServer;
 @end
