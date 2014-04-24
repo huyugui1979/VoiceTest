@@ -19,6 +19,14 @@
 #include <string>
 #include <signal.h>
 #define FRAME_SIZE 160
+typedef unsigned char           u8;
+typedef unsigned short          u16;
+typedef unsigned int            u32;
+#define MAKEWORD(low, hi)       ((u16)(((u8)(low))|(((u16)((u8)(hi)))<<8)))
+#define HIWORD(l)               ((u16)((((u32)(l)) >> 16) & 0xFFFF))
+#define LOWORD(l)               ((u16)(u32)(l))
+#define HIBYTE(w)               ((u8)(((u16)(w) >> 8) & 0xFF))
+#define LOBYTE(w)               ((u8)(w))
 //
 void Mix(char* sourseFile,int number,char *objectFile)
 {
@@ -56,6 +64,37 @@ void Mix(char* sourseFile,int number,char *objectFile)
     }
 }
 
+void RaiseVolume(char* buf, uint32_t size,uint32_t uRepeat)
+{
+    if (!size )
+    {
+        return;
+    }
+    for (int i = 0; i < size;)
+    {
+        signed long minData = -0x8000;//如果是8bit编码这里变成-0x80
+        signed long maxData = 0x7FFF;//如果是8bit编码这里变成0xFF
+        
+        signed short wData = MAKEWORD(buf[i],buf[i+1]);
+        signed long dwData = wData;
+        for (int j = 0; j < uRepeat; j++)
+        {
+            dwData = dwData * 1.25;
+            if (dwData < -0x8000)
+            {
+                dwData = -0x8000;
+            }
+            else if (dwData > 0x7FFF)
+            {
+                dwData = 0x7FFF;
+            }
+        }
+        wData = LOWORD(dwData);
+        buf[i] = LOBYTE(wData);
+        buf[i+1] = HIBYTE(wData);
+        i += 2;
+    }
+}
 int VoiceSession::GetData(char* data)
 {
     //
@@ -74,6 +113,7 @@ int VoiceSession::GetData(char* data)
     }
     //
     Mix(da,_clients.size(),data);
+    RaiseVolume(data,320,3);
     delete da;
     //
     pthread_mutex_unlock(&_decorder_mutex);

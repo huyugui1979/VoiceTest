@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "418896064.614428"
+            timestampString = "420014595.973738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "VoiceSession::RecvServerProc(void *p)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "418896083.864676"
+            timestampString = "420014595.973738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "VoiceSession::RecvServerProc(void *p)"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "419393510.26496"
+            timestampString = "420014595.973738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
+            startingLineNumber = "673"
+            endingLineNumber = "673"
             landmarkName = "VoiceSession::EnterRoom(int roomId)"
             landmarkType = "5">
          </BreakpointContent>
@@ -242,11 +242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "419393510.26496"
+            timestampString = "420014595.973738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
             landmarkName = "VoiceSession::GetRoomMember(int roomId,vector&lt;int&gt;* s)"
             landmarkType = "5">
          </BreakpointContent>
@@ -258,11 +258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VocieTest/VoiceSession.cpp"
-            timestampString = "419391840.264473"
+            timestampString = "420014595.973738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "VoiceSession::RecvServerProc(void *p)"
             landmarkType = "5">
          </BreakpointContent>
@@ -371,6 +371,22 @@
                   offsetFromSymbolStart = "592">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VocieTest/VoiceSession.cpp"
+            timestampString = "420014595.973738"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "VoiceSession::ServerTimerProc(void *p)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
