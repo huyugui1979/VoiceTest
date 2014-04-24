@@ -264,7 +264,11 @@ static void BufferCallback(void *inUserData,AudioQueueRef inAQ,
             return nil;
         }
         //
-        
+        UInt32 defaultToSpeaker = 1;
+        if((res= AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof (defaultToSpeaker), &defaultToSpeaker )) != kAudioSessionNoError)
+        {
+            return nil;
+        }
     }
     return self;
 }
